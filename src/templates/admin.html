@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>2cz · 写作</title>
+<link rel="icon" href="/icons/favicon.svg">
+<style>body{margin:0;background:#fafaf6;font-family:system-ui,sans-serif}#loading{max-width:34rem;margin:15vh auto;padding:2rem;color:#293d34;line-height:1.8}a{color:#426649}</style>
+</head>
+<body>
+<div id="loading"><h1>2cz · 写作</h1><p>正在载入编辑器…</p><p><a href="/">返回网站</a></p></div>
+<script>window.CMS_MANUAL_INIT=true;</script><script src="https://unpkg.com/decap-cms@3.16.0/dist/decap-cms.js" onerror="document.querySelector('#loading p').textContent='编辑器加载失败，请检查网络后刷新。'"></script>
+<script>
+if(window.CMS){
+ document.getElementById('loading').remove();
+ const script=document.createElement("script");script.src="/admin/editor.js";document.body.appendChild(script);
+}
+</script>
+</body></html>
+

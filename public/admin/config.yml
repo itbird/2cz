@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: itbird/2cz
+  branch: main
+  base_url: https://2cz.com
+  auth_endpoint: api/auth
+local_backend:
+  url: http://localhost:8081/api/v1
+publish_mode: editorial_workflow
+site_url: https://2cz.com
+site_domain: 2cz.com
+display_url: https://2cz.com
+locale: zh_Hans
+media_folder: public/uploads
+public_folder: /uploads
+slug:
+  encoding: unicode
+  clean_accents: false
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 文章
+    folder: src/content/posts
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    summary: '{{title}} · {{published}}'
+    sortable_fields: [published, title]
+    preview_path: posts/{{slug}}/
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 日期, name: published, widget: datetime, date_format: YYYY-MM-DD, time_format: false, format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]' }
+      - { label: 摘要, name: description, widget: text, required: false }
+      - { label: 标签, name: tags, widget: list, required: false, default: [] }
+      - { label: 从网站隐藏, name: draft, widget: boolean, default: false, hint: 开启后，即使发布到主分支也不会显示在网站上。 }
+      - { label: 置顶优先级, name: pin, widget: number, value_type: int, min: 0, max: 99, default: 0, hint: 0 表示不置顶。 }
+      - { label: 目录, name: toc, widget: boolean, default: true }
+      - { name: lang, widget: hidden, default: zh }
+      - { label: 正文, name: body, widget: markdown_file }
+  - name: pages
+    label: 页面
+    files:
+      - name: about
+        label: 关于
+        file: src/content/about/about-zh.md
+        fields:
+          - { name: lang, widget: hidden, default: zh }
+          - { label: 正文, name: body, widget: markdown_file }
+
